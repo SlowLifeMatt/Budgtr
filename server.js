@@ -16,6 +16,10 @@ app.get('/budget', (req, res) => {
   })
 
 });
+// new route
+app.get('/budget/new', (req, res) => {
+    res.render('new.ejs')
+})
 
 // show route
 app.get('/budget/:id', (req,res) => {
@@ -24,6 +28,18 @@ app.get('/budget/:id', (req,res) => {
         allBudget: budget[req.params.id],
     })
 })
+
+//post route
+app.post('/budget', (req,res) => {
+    console.log(req.body)
+  
+    budget.push(req.body)
+    // res.send('Data have been received')
+  
+    res.redirect('/budget')
+  })
+
+
 
 // listener
 app.listen(port, () => {
