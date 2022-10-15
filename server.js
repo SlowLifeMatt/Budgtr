@@ -2,6 +2,7 @@ const express = require('express');
 const budget = require('./models/budget.js');
 const app = express();
 const port = 3000;
+
 app.use(express.urlencoded({extended: false}))
 
 

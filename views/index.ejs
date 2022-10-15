@@ -11,6 +11,11 @@
 <body>
     <div class="container">
         <h1>Budgtr All</h1>
+        <% let bankAccount = allBudget.reduce((acc, allBudget) => {
+            return acc + parseInt(allBudget.amount)
+        },0) %>
+        <h3>Balance: <%= '$ ' + bankAccount %></h3>
+
         <table>
             <% for(let i =0; i < allBudget.length; i++){ %>
             <tr>
@@ -20,9 +25,42 @@
             </tr>
             <% } %>
         </table>
-
+        <button><a href="/budget/new">Submit a new Expense</a></button>
 
     </div>
+
+    <!-- if else statement to change colors of the balance -->
+    <% if (bankAccount > 1000) { %>
+        <style>
+            h3 {
+                background-color: rgb(0, 255, 60);
+                display:inline-block
+            }
+        </style>
+        <% } else if (bankAccount <= 0) { %>
+            <style>
+                h3 {
+                    background-color: red;
+                    display:inline-block;
+                }
+            </style>
+            <% } else if (bankAccount < 1000 > 0) { %>
+                <style>
+                    h3 {
+                        background-color: aqua;
+                        display: inline-block;
+                    }
+                </style>
+    <% } %>
     
+
 </body>
 </html>
+
+<!-- let arr = [ 1, 2, 3, 4, 5, 6 ];
+arr.reduce(function(p,n){
+    return p + n;
+}, 0);
+// Output 21 -->
+
+<!-- array reduce method from Stackoverflow -->
