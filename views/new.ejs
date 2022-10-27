@@ -11,9 +11,9 @@
 <body>
     <h1>Add a new item</h1>
 <form action="/budget" method="POST">
-    <input type="text" name='date' placeholder="date"/>
-    <input type="text" name='name' placeholder="name"/><br>
-    <input type="text" name='amount' placeholder="amount"/>
+    <input required type="date" name='date' placeholder="date"/>
+    <input required type="text" name='name' placeholder="name"/><br>
+    <input required type="number" name='amount' placeholder="amount"/>
     <input type="text" name='from' placeholder="from"/><br>
     <input type="text" name='tags' placeholder="tags"/>
     <input type="submit" value="create new item"/> 
